@@ -1,0 +1,1 @@
+<img src="{{ asset('logo/patronus_logo.png') }}" width="200" height="150">
