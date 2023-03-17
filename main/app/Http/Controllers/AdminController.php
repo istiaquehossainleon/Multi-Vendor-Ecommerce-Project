@@ -16,7 +16,12 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+            'message' => 'User Logged out Successfully!',
+            'alart-type' => 'success'
+        );
+
+        return redirect('/login')->with($notification);;
     }
 
     public function Profile()
@@ -48,6 +53,10 @@ class AdminController extends Controller
             $data['profile_image'] = $filename;
         }
         $data->save();
-        return redirect()->route('admin.profile');
+        $notification = array(
+            'message' => 'Profile Updated Successfully!',
+            'alart-type' => 'warning'
+        );
+        return redirect()->route('admin.profile')->with($notification);
     }
 }
