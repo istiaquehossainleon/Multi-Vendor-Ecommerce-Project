@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 11:39 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: May 26, 2023 at 03:24 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,6 +40,29 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `home_slides`
+--
+
+CREATE TABLE `home_slides` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `short_title` varchar(255) DEFAULT NULL,
+  `home_slide` varchar(255) DEFAULT NULL,
+  `video_url` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_slides`
+--
+
+INSERT INTO `home_slides` (`id`, `title`, `short_title`, `home_slide`, `video_url`, `created_at`, `updated_at`) VALUES
+(1, 'We Create Your Charm Your Identity', 'Step into a world of timeless elegance and effortless style. Our fashion brand embraces individuality, empowering you to express your unique self through exquisite designs.', 'upload/home-slide/1766954481694592.jpg', 'https://www.youtube.com/watch?v=W4v7RUBF8CQ', NULL, '2023-05-26 05:16:37');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -57,7 +80,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_05_25_155530_create_home_slides_table', 2);
 
 -- --------------------------------------------------------
 
@@ -121,8 +145,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `profile_image`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'Istiaque Hossain Leon', 'istiaqueleon', '2023031703441 (1).JPG', 'istiaquehossain382@gmail.com', NULL, '$2y$10$PzXF0lnhweGQdXNd1BLnEuiWRNsG4fWs79gUnFkhZZ0AxePuTQjFK', NULL, '2023-03-16 21:42:26', '2023-03-16 22:11:53'),
-(5, 'username', 'user', NULL, 'user@email.com', NULL, '$2y$10$1iIy6HjGkiw8qqqIY0X4Yu3D41UBa7a0CywnA1At78rUUsBoi/81G', NULL, '2023-03-16 22:10:43', '2023-03-16 22:10:43');
+(5, 'username', 'user', NULL, 'user@email.com', NULL, '$2y$10$1iIy6HjGkiw8qqqIY0X4Yu3D41UBa7a0CywnA1At78rUUsBoi/81G', NULL, '2023-03-16 22:10:43', '2023-03-16 22:10:43'),
+(6, 'Zahidul Islam Pranto', 'zipranto', NULL, 'zi@email.com', NULL, '$2y$10$3PzA/j7VnkVAlcicRXChD.aD0.O4MMzLUNOo9DBS24oprDbHbXXFK', NULL, '2023-03-18 20:27:23', '2023-03-18 20:27:23'),
+(7, 'Istiaque Hossain Leon', 'istiaqueleon', '2023031902311 (1).JPG', 'istiaquehossain382@gmail.com', NULL, '$2y$10$s6Bkf.Ztqmu/kQt.qaLpl.bchJ/PDWQtXW70u6i9rwYR/8RL4MnvK', NULL, '2023-03-18 20:31:29', '2023-03-18 21:55:17');
 
 --
 -- Indexes for dumped tables
@@ -134,6 +159,12 @@ INSERT INTO `users` (`id`, `name`, `username`, `profile_image`, `email`, `email_
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `home_slides`
+--
+ALTER TABLE `home_slides`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -174,10 +205,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `home_slides`
+--
+ALTER TABLE `home_slides`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -189,7 +226,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
